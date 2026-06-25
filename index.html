@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitor Counter</title>
+</head>
+<body>
+    <h1>Visitor Counter</h1>
+
+    <p id="counter">Loading...</p>
+
+    <script>
+        const apiUrl = "https://84dtnmre1g.execute-api.ap-south-1.amazonaws.com/count";
+
+        async function loadCounter() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                document.getElementById("counter").textContent =
+                    `Visitors: ${data.updatedCount}`;
+            } catch (error) {
+                document.getElementById("counter").textContent =
+                    "Failed to load counter";
+
+                console.error(error);
+            }
+        }
+
+        loadCounter();
+    </script>
+</body>
+</html>
