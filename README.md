@@ -114,6 +114,84 @@ visitor-counter/
 
 ---
 
+# How to Run This Project
+
+## Step 1
+
+Create a DynamoDB table.
+
+```
+Table Name:
+visitor_count
+
+Partition Key:
+id (String)
+```
+
+Add an item:
+
+```json
+{
+  "id": "homepage",
+  "count": 0
+}
+```
+
+---
+
+## Step 2
+
+Create an AWS Lambda function.
+
+- Runtime: Python
+- Add the Lambda code from `lambda/lambda.py`
+- Attach an IAM role with DynamoDB read/write permissions.
+
+---
+
+## Step 3
+
+Create an HTTP API using API Gateway.
+
+- Create a GET route (`/count`)
+- Integrate it with the Lambda function
+- Enable CORS
+- Deploy the API
+
+---
+
+## Step 4
+
+Update the API URL inside `index.html`.
+
+Replace:
+
+```javascript
+const apiUrl = "YOUR_API_GATEWAY_URL";
+```
+
+with your deployed API endpoint.
+
+---
+
+## Step 5
+
+Create an Amazon S3 bucket.
+
+- Enable Static Website Hosting
+- Upload `index.html`
+- Configure bucket policy for public read access
+
+---
+
+## Step 6
+
+Open the S3 Website URL.
+
+Every refresh should increase the visitor count.
+
+---
+
 # 🖥️ Website
 
 ![Website](assets/website.png)
@@ -450,18 +528,6 @@ It controls whether JavaScript from one origin is allowed to access resources fr
 
 ---
 
-## Difference between IAM AccessDenied and ResourceNotFound?
-
-**AccessDenied**
-
-The resource exists but the caller is not authorized.
-
-**ResourceNotFound**
-
-The resource does not exist or the incorrect name/region is being used.
-
----
-
 ## What is the limitation of the current implementation?
 
 The current implementation performs:
@@ -499,7 +565,3 @@ Production systems should use DynamoDB Atomic Counters.
 - End-to-End Cloud Application Development
 
 ---
-
-# 👨‍💻 Author
-
-Built as a hands-on learning project to gain practical experience with AWS Serverless Architecture and understand how multiple AWS services integrate to build scalable cloud-native applications.
