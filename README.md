@@ -1,3 +1,20 @@
+## 📑 Table of Contents
+
+1. [Project Overview](#-project-overview)
+2. [Why I Built This Project](#-why-i-built-this-project)
+3. [Architecture](#-architecture)
+4. [Application Flow](#-application-flow)
+5. [AWS Services Used](#️-aws-services-used)
+6. [Project Structure](#-project-structure)
+7. [Getting Started](#-how-to-run-this-project)
+8. [Screenshots](#️-website)
+9. [Challenges & Troubleshooting](#️-challenges-faced--troubleshooting)
+10. [Key Learnings](#-key-learnings)
+11. [Future Enhancements](#-future-enhancements)
+12. [Interview Questions](#-interview-questions)
+13. [Skills Demonstrated](#-skills-demonstrated)
+
+
 # 🚀 Serverless Visitor Counter on AWS
 
 A simple serverless web application built using AWS core services to understand how modern cloud-native applications are designed, deployed, secured, and debugged.
